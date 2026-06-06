@@ -1,11 +1,161 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Forever Beginning - Aswin ❤️ Megha</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Forever Beginning • Aswin ❤️ Megha</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Georgia, serif;
+}
+
+body{
+background:#f8f5ef;
+overflow-x:hidden;
+}
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(to bottom,#dbe7d3,#f8f5ef);
+}
+
+.envelope{
+width:260px;
+height:170px;
+background:#b7c4a8;
+position:relative;
+cursor:pointer;
+border-radius:8px;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+.envelope:before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:0;
+height:0;
+border-left:130px solid transparent;
+border-right:130px solid transparent;
+border-top:90px solid #9caf8d;
+transform-origin:top;
+transition:1s;
+z-index:3;
+}
+
+.letter{
+position:absolute;
+width:90%;
+height:140px;
+background:white;
+left:5%;
+top:10px;
+border-radius:6px;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+transition:1s;
+z-index:1;
+}
+
+.open .letter{
+transform:translateY(-140px);
+}
+
+.open.envelope:before{
+transform:rotateX(180deg);
+}
+
+.message{
+display:none;
+text-align:center;
+padding:30px;
+}
+
+.message h1{
+font-size:42px;
+margin-bottom:10px;
+color:#2d4a33;
+}
+
+.message h2{
+font-size:28px;
+margin-bottom:20px;
+}
+
+.message p{
+font-size:18px;
+line-height:1.7;
+max-width:700px;
+margin:auto;
+}
+
+.show{
+display:block;
+animation:fade 2s;
+}
+
+@keyframes fade{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+</style>
 </head>
+
 <body>
+
+<section class="hero">
+
+<div class="envelope" id="env">
+
+<div class="letter">
+<h3>Wedding Invitation</h3>
+<p>Tap to Open</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="message" id="content">
+
 <h1>Forever Beginning</h1>
+
 <h2>Aswin ❤️ Megha</h2>
-<p>Premium Wedding Invitation V2</p>
+
+<p>
+Together with our families, we joyfully invite you to celebrate
+our wedding and bless us as we begin this beautiful journey together.
+</p>
+
+</section>
+
+<script>
+
+document.getElementById("env").onclick=function(){
+
+this.classList.add("open");
+
+setTimeout(()=>{
+document.querySelector(".hero").style.display="none";
+document.getElementById("content").classList.add("show");
+},1200);
+
+}
+
+</script>
+
 </body>
 </html>
