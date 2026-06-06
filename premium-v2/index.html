@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Forever Beginning • Aswin ❤️ Megha</title>
+<title>Forever Beginning | Aswin ❤️ Megha</title>
 
 <style>
 
@@ -12,103 +11,205 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Georgia, serif;
 }
 
 body{
-background:#f8f5ef;
-overflow-x:hidden;
+font-family:Georgia,serif;
+background:#d8e1cf;
+overflow:hidden;
 }
 
-.hero{
+/* ENVELOPE SCREEN */
+
+#opening{
+width:100%;
 height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-background:linear-gradient(to bottom,#dbe7d3,#f8f5ef);
+background:#d8e1cf;
+position:relative;
 }
 
 .envelope{
-width:260px;
-height:170px;
-background:#b7c4a8;
+width:320px;
+height:220px;
+background:#a8b99a;
 position:relative;
-cursor:pointer;
 border-radius:8px;
-box-shadow:0 10px 25px rgba(0,0,0,.2);
+box-shadow:0 20px 40px rgba(0,0,0,.2);
+overflow:hidden;
 }
 
-.envelope:before{
-content:"";
+/* flap */
+
+.flap{
 position:absolute;
 top:0;
 left:0;
 width:0;
 height:0;
-border-left:130px solid transparent;
-border-right:130px solid transparent;
-border-top:90px solid #9caf8d;
+border-left:160px solid transparent;
+border-right:160px solid transparent;
+border-top:120px solid #93a484;
 transform-origin:top;
-transition:1s;
-z-index:3;
+transition:1.2s;
+z-index:5;
 }
 
-.letter{
+/* invitation text */
+
+.env-text{
 position:absolute;
-width:90%;
-height:140px;
-background:white;
-left:5%;
-top:10px;
-border-radius:6px;
+width:100%;
+text-align:center;
+top:35px;
+color:#fff;
+z-index:2;
+}
+
+.env-text h2{
+font-size:26px;
+font-weight:normal;
+margin-bottom:12px;
+}
+
+.env-text p{
+font-size:15px;
+letter-spacing:2px;
+}
+
+/* gold seal */
+
+.seal{
+position:absolute;
+width:90px;
+height:90px;
+background:linear-gradient(145deg,#e4c267,#b88a2d);
+border-radius:50%;
+bottom:25px;
+left:50%;
+transform:translateX(-50%);
+display:flex;
+align-items:center;
+justify-content:center;
+color:#fff;
+font-size:24px;
+cursor:pointer;
+z-index:10;
+box-shadow:0 6px 20px rgba(0,0,0,.25);
+transition:.5s;
+}
+
+.seal:hover{
+transform:translateX(-50%) scale(1.05);
+}
+
+/* LETTER */
+
+#letterPage{
+position:fixed;
+top:100%;
+left:0;
+width:100%;
+height:100%;
+background:#d8e1cf;
 display:flex;
 justify-content:center;
 align-items:center;
-flex-direction:column;
-transition:1s;
-z-index:1;
-}
-
-.open .letter{
-transform:translateY(-140px);
-}
-
-.open.envelope:before{
-transform:rotateX(180deg);
-}
-
-.message{
-display:none;
 text-align:center;
 padding:30px;
+transition:1.8s;
+z-index:100;
 }
 
-.message h1{
-font-size:42px;
-margin-bottom:10px;
-color:#2d4a33;
+.pattern{
+position:absolute;
+inset:0;
+opacity:.08;
+background:
+radial-gradient(circle at 20% 20%,#7f8f71 2px,transparent 2px),
+radial-gradient(circle at 80% 40%,#7f8f71 2px,transparent 2px),
+radial-gradient(circle at 40% 80%,#7f8f71 2px,transparent 2px);
+background-size:120px 120px;
 }
 
-.message h2{
-font-size:28px;
+.letter-content{
+position:relative;
+z-index:5;
+max-width:800px;
+}
+
+.letter-content h1{
+font-size:52px;
+color:#28402b;
 margin-bottom:20px;
 }
 
-.message p{
+.letter-content h2{
+font-size:34px;
+margin-bottom:30px;
+color:#5c3a21;
+}
+
+.letter-content p{
+font-size:22px;
+line-height:1.8;
+color:#2f3c30;
+}
+
+.gold-line{
+width:160px;
+height:2px;
+background:#b88a2d;
+margin:25px auto;
+}
+
+/* OPEN ANIMATION */
+
+.open .flap{
+transform:rotateX(180deg);
+}
+
+.music-btn{
+position:fixed;
+top:15px;
+right:15px;
+background:#b88a2d;
+color:#fff;
+border:none;
+padding:10px 14px;
+border-radius:20px;
+font-size:14px;
+z-index:999;
+display:none;
+}
+
+@media(max-width:600px){
+
+.envelope{
+width:280px;
+height:200px;
+}
+
+.flap{
+border-left:140px solid transparent;
+border-right:140px solid transparent;
+border-top:110px solid #93a484;
+}
+
+.letter-content h1{
+font-size:38px;
+}
+
+.letter-content h2{
+font-size:26px;
+}
+
+.letter-content p{
 font-size:18px;
-line-height:1.7;
-max-width:700px;
-margin:auto;
 }
 
-.show{
-display:block;
-animation:fade 2s;
-}
-
-@keyframes fade{
-from{opacity:0;}
-to{opacity:1;}
 }
 
 </style>
@@ -116,44 +217,92 @@ to{opacity:1;}
 
 <body>
 
-<section class="hero">
+<div id="opening">
 
-<div class="envelope" id="env">
+<div class="envelope" id="envelope">
 
-<div class="letter">
-<h3>Wedding Invitation</h3>
-<p>Tap to Open</p>
+<div class="flap"></div>
+
+<div class="env-text">
+<h2>Wedding Invitation</h2>
+<p>Tap The Seal</p>
+</div>
+
+<div class="seal" id="seal">
+A ❤️ M
 </div>
 
 </div>
 
-</section>
+</div>
 
-<section class="message" id="content">
+<div id="letterPage">
+
+<div class="pattern"></div>
+
+<div class="letter-content">
 
 <h1>Forever Beginning</h1>
+
+<div class="gold-line"></div>
 
 <h2>Aswin ❤️ Megha</h2>
 
 <p>
-Together with our families, we joyfully invite you to celebrate
-our wedding and bless us as we begin this beautiful journey together.
+Together with our families,<br><br>
+
+we joyfully invite you to celebrate our wedding
+and bless us as we begin this beautiful journey together.
 </p>
 
-</section>
+</div>
+
+</div>
+
+<button class="music-btn" id="musicBtn">🔊 Music</button>
+
+<audio id="bgMusic" loop>
+<source src="../music/reelaudio-70084_rWPASEbu.mp3" type="audio/mpeg">
+</audio>
 
 <script>
 
-document.getElementById("env").onclick=function(){
+const seal=document.getElementById("seal");
+const envelope=document.getElementById("envelope");
+const letter=document.getElementById("letterPage");
+const music=document.getElementById("bgMusic");
+const musicBtn=document.getElementById("musicBtn");
 
-this.classList.add("open");
+seal.addEventListener("click",()=>{
+
+seal.style.opacity="0";
+
+envelope.classList.add("open");
 
 setTimeout(()=>{
-document.querySelector(".hero").style.display="none";
-document.getElementById("content").classList.add("show");
+
+letter.style.top="0";
+
+music.play().catch(()=>{});
+
+musicBtn.style.display="block";
+
 },1200);
 
+});
+
+musicBtn.addEventListener("click",()=>{
+
+if(music.paused){
+music.play();
+musicBtn.innerHTML="🔊 Music";
 }
+else{
+music.pause();
+musicBtn.innerHTML="🔇 Muted";
+}
+
+});
 
 </script>
 
