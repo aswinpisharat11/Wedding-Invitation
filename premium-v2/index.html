@@ -194,6 +194,40 @@ font-size:18px;
 }
 
 }
+  #heroPhoto{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:0;
+transition:opacity 2.5s ease;
+z-index:1;
+}
+
+#heroPhoto.show{
+opacity:1;
+}
+
+.pattern{
+z-index:2;
+}
+
+.letter-content{
+position:relative;
+z-index:5;
+}
+
+.letter-content::before{
+content:"";
+position:absolute;
+inset:-20px;
+background:rgba(0,0,0,.20);
+backdrop-filter:blur(2px);
+border-radius:20px;
+z-index:-1;
+}
 </style>
 </head>
 
@@ -220,6 +254,11 @@ Wedding Invitation
 <div id="letterPage">
 
 <div class="pattern"></div>
+
+<img
+id="heroPhoto"
+src="../images/file_000000000dc47208a34ae8fe0d8e63e8.png"
+alt="Aswin and Megha">
 
 <div class="letter-content">
 
@@ -269,6 +308,14 @@ letter.style.top="0";
 music.play().catch(()=>{});
 
 musicBtn.style.display="block";
+
+setTimeout(()=>{
+
+document
+.getElementById("heroPhoto")
+.classList.add("show");
+
+},3000);
 
 },1200);
 
