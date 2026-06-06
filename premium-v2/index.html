@@ -19,29 +19,27 @@ background:#d8e1cf;
 overflow:hidden;
 }
 
-/* ENVELOPE SCREEN */
-
 #opening{
 width:100%;
 height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
+flex-direction:column;
 background:#d8e1cf;
 position:relative;
 }
 
 .envelope{
-width:320px;
-height:220px;
+width:390px;
+height:270px;
+max-width:90vw;
 background:#a8b99a;
 position:relative;
-border-radius:8px;
-box-shadow:0 20px 40px rgba(0,0,0,.2);
+border-radius:12px;
+box-shadow:0 20px 40px rgba(0,0,0,.25);
 overflow:hidden;
 }
-
-/* flap */
 
 .flap{
 position:absolute;
@@ -49,165 +47,64 @@ top:0;
 left:0;
 width:0;
 height:0;
-border-left:160px solid transparent;
-border-right:160px solid transparent;
-border-top:120px solid #93a484;
+border-left:195px solid transparent;
+border-right:195px solid transparent;
+border-top:135px solid #93a484;
 transform-origin:top;
 transition:1.2s;
 z-index:5;
 }
 
-/* invitation text */
-
-.env-text{
-position:absolute;
-width:100%;
-text-align:center;
-top:35px;
-color:#fff;
-z-index:2;
-}
-
-.env-text h2{
-font-size:26px;
-font-weight:normal;
-margin-bottom:12px;
-}
-
-.env-text p{
-font-size:15px;
-letter-spacing:2px;
-}
-
-/* gold seal */
-
 .seal{
 position:absolute;
-width:90px;
-height:90px;
+width:54px;
+height:54px;
 background:linear-gradient(145deg,#e4c267,#b88a2d);
 border-radius:50%;
-bottom:25px;
+bottom:18px;
 left:50%;
 transform:translateX(-50%);
 display:flex;
 align-items:center;
 justify-content:center;
 color:#fff;
-font-size:24px;
+font-size:13px;
+font-weight:bold;
 cursor:pointer;
 z-index:10;
-box-shadow:0 6px 20px rgba(0,0,0,.25);
+border:2px solid rgba(255,255,255,.35);
+box-shadow:0 4px 14px rgba(0,0,0,.25);
 transition:.5s;
 }
 
-.seal:hover{
-transform:translateX(-50%) scale(1.05);
+.invite-label{
+margin-top:30px;
+font-size:28px;
+font-style:italic;
+color:#d4af37;
+letter-spacing:1px;
+text-shadow:0 2px 8px rgba(0,0,0,.2);
 }
-
-/* LETTER */
-
-#letterPage{
-position:fixed;
-top:100%;
-left:0;
-width:100%;
-height:100%;
-background:#d8e1cf;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:30px;
-transition:1.8s;
-z-index:100;
-}
-
-.pattern{
-position:absolute;
-inset:0;
-opacity:.08;
-background:
-radial-gradient(circle at 20% 20%,#7f8f71 2px,transparent 2px),
-radial-gradient(circle at 80% 40%,#7f8f71 2px,transparent 2px),
-radial-gradient(circle at 40% 80%,#7f8f71 2px,transparent 2px);
-background-size:120px 120px;
-}
-
-.letter-content{
-position:relative;
-z-index:5;
-max-width:800px;
-}
-
-.letter-content h1{
-font-size:52px;
-color:#28402b;
-margin-bottom:20px;
-}
-
-.letter-content h2{
-font-size:34px;
-margin-bottom:30px;
-color:#5c3a21;
-}
-
-.letter-content p{
-font-size:22px;
-line-height:1.8;
-color:#2f3c30;
-}
-
-.gold-line{
-width:160px;
-height:2px;
-background:#b88a2d;
-margin:25px auto;
-}
-
-/* OPEN ANIMATION */
 
 .open .flap{
 transform:rotateX(180deg);
 }
 
-.music-btn{
-position:fixed;
-top:15px;
-right:15px;
-background:#b88a2d;
-color:#fff;
-border:none;
-padding:10px 14px;
-border-radius:20px;
-font-size:14px;
-z-index:999;
-display:none;
-}
-
 @media(max-width:600px){
 
 .envelope{
-width:280px;
-height:200px;
+width:320px;
+height:230px;
 }
 
 .flap{
-border-left:140px solid transparent;
-border-right:140px solid transparent;
-border-top:110px solid #93a484;
+border-left:160px solid transparent;
+border-right:160px solid transparent;
+border-top:115px solid #93a484;
 }
 
-.letter-content h1{
-font-size:38px;
-}
-
-.letter-content h2{
-font-size:26px;
-}
-
-.letter-content p{
-font-size:18px;
+.invite-label{
+font-size:22px;
 }
 
 }
@@ -223,88 +120,17 @@ font-size:18px;
 
 <div class="flap"></div>
 
-<div class="env-text">
-<h2>Wedding Invitation</h2>
-<p>Tap The Seal</p>
-</div>
-
 <div class="seal" id="seal">
-A ❤️ M
+A M
 </div>
 
 </div>
 
-</div>
-
-<div id="letterPage">
-
-<div class="pattern"></div>
-
-<div class="letter-content">
-
-<h1>Forever Beginning</h1>
-
-<div class="gold-line"></div>
-
-<h2>Aswin ❤️ Megha</h2>
-
-<p>
-Together with our families,<br><br>
-
-we joyfully invite you to celebrate our wedding
-and bless us as we begin this beautiful journey together.
-</p>
-
+<div class="invite-label">
+Wedding Invitation
 </div>
 
 </div>
-
-<button class="music-btn" id="musicBtn">🔊 Music</button>
-
-<audio id="bgMusic" loop>
-<source src="../music/reelaudio-70084_rWPASEbu.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-
-const seal=document.getElementById("seal");
-const envelope=document.getElementById("envelope");
-const letter=document.getElementById("letterPage");
-const music=document.getElementById("bgMusic");
-const musicBtn=document.getElementById("musicBtn");
-
-seal.addEventListener("click",()=>{
-
-seal.style.opacity="0";
-
-envelope.classList.add("open");
-
-setTimeout(()=>{
-
-letter.style.top="0";
-
-music.play().catch(()=>{});
-
-musicBtn.style.display="block";
-
-},1200);
-
-});
-
-musicBtn.addEventListener("click",()=>{
-
-if(music.paused){
-music.play();
-musicBtn.innerHTML="🔊 Music";
-}
-else{
-music.pause();
-musicBtn.innerHTML="🔇 Muted";
-}
-
-});
-
-</script>
 
 </body>
 </html>
