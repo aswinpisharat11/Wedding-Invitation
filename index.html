@@ -1,1 +1,103 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aswin ❤️ Megha Wedding Invitation</title><style>
+body{
+margin:0;
+font-family:Georgia,serif;
+background:#f8f4e9;
+color:#333;
+text-align:center;
+}
 
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:linear-gradient(to bottom,#f7e7b4,#ffffff);
+padding:20px;
+}
+
+h1{
+font-size:3rem;
+margin:10px;
+color:#8b6b00;
+}
+
+h2{
+font-size:1.5rem;
+font-weight:normal;
+}
+
+.section{
+padding:60px 20px;
+}
+
+.photo{
+width:90%;
+max-width:400px;
+border-radius:20px;
+box-shadow:0 4px 15px rgba(0,0,0,0.2);
+margin:20px auto;
+display:block;
+}
+
+.button{
+display:inline-block;
+padding:15px 25px;
+background:#0a7f3f;
+color:white;
+text-decoration:none;
+border-radius:30px;
+margin-top:20px;
+}
+
+.countdown{
+font-size:1.5rem;
+font-weight:bold;
+color:#8b6b00;
+}
+</style></head><body><section class="hero">
+<h2>Wedding Invitation</h2>
+<h1>Aswin ❤️ Megha</h1>
+<p>22 October 2026</p>
+</section><section class="section">
+<h2>Our Special Day</h2>
+<p>
+With immense joy and gratitude, we invite you to join us
+as we begin a beautiful new chapter of our lives together.
+Your presence and blessings will make this occasion truly special.
+</p>
+</section><section class="section">
+<h2>Wedding Countdown</h2>
+<div id="countdown" class="countdown"></div>
+</section><section class="section">
+<h2>Wedding Details</h2>
+<p><strong>Date:</strong> 22 October 2026</p>
+<p><strong>Muhurtham:</strong> 11:45 AM – 12:15 PM</p>
+<p><strong>Venue:</strong> Al Saj Arena, Trivandrum</p>
+</section><section class="section">
+<h2>RSVP</h2>
+<a class="button"
+href="https://wa.me/919400476560">
+Confirm via WhatsApp
+</a>
+</section><script>
+const targetDate = new Date("October 22, 2026 11:45:00").getTime();
+
+setInterval(function(){
+const now = new Date().getTime();
+const distance = targetDate - now;
+
+const days = Math.floor(distance/(1000*60*60*24));
+const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+
+document.getElementById("countdown").innerHTML =
+days + " Days " + hours + " Hours " + minutes + " Minutes";
+},1000);
+</script></body>
+</html>
