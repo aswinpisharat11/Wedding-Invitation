@@ -292,6 +292,71 @@ color:white;
 letter-spacing:6px;
 text-shadow:0 3px 10px rgba(0,0,0,.4);
 }
+  #countdownSection{
+position:relative;
+width:100%;
+height:100vh;
+background:url("YOUR-COUNTDOWN-IMAGE") center/cover;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.countdown-overlay{
+background:rgba(0,0,0,.35);
+padding:40px;
+border-radius:25px;
+backdrop-filter:blur(8px);
+}
+
+.countdown-overlay h1{
+color:white;
+margin-bottom:40px;
+font-size:48px;
+}
+
+#countdown{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.time-box{
+background:rgba(255,255,255,.15);
+padding:20px;
+border-radius:20px;
+min-width:100px;
+}
+
+.time-box span{
+font-size:48px;
+font-weight:bold;
+color:white;
+}
+
+.time-box p{
+color:white;
+margin-top:10px;
+}
+
+@media(max-width:600px){
+
+.countdown-overlay h1{
+font-size:30px;
+}
+
+.time-box{
+min-width:75px;
+padding:15px;
+}
+
+.time-box span{
+font-size:28px;
+}
+
+}
 </style>
 </head>
 
@@ -415,6 +480,40 @@ musicBtn.innerHTML="🔇 Muted";
 }
 
 });
+
+    const weddingDate = new Date(
+"october 22, 2026 11:00:00"
+).getTime();
+
+setInterval(()=>{
+
+const now = new Date().getTime();
+
+const distance = weddingDate - now;
+
+const days = Math.floor(distance/(1000*60*60*24));
+
+const hours = Math.floor(
+(distance%(1000*60*60*24))/
+(1000*60*60)
+);
+
+const minutes = Math.floor(
+(distance%(1000*60*60))/
+(1000*60)
+);
+
+const seconds = Math.floor(
+(distance%(1000*60))/
+1000
+);
+
+document.getElementById("days").innerHTML=days;
+document.getElementById("hours").innerHTML=hours;
+document.getElementById("minutes").innerHTML=minutes;
+document.getElementById("seconds").innerHTML=seconds;
+
+},1000);
 </script>
   <section id="saveDateSection">
 
@@ -429,6 +528,44 @@ alt="Save The Date">
 
 </div>
 </section>
+  </section>
+
+<!-- COUNTDOWN SECTION START -->
+
+<section id="countdownSection">
+
+<div class="countdown-overlay">
+
+<h1>COUNTDOWN TO OUR BIG DAY</h1>
+
+<div id="countdown">
+
+<div class="time-box">
+<span id="days">00</span>
+<p>Days</p>
+</div>
+
+<div class="time-box">
+<span id="hours">00</span>
+<p>Hours</p>
+</div>
+
+<div class="time-box">
+<span id="minutes">00</span>
+<p>Minutes</p>
+</div>
+
+<div class="time-box">
+<span id="seconds">00</span>
+<p>Seconds</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
 
 </body>
 </html>
+
