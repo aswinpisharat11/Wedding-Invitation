@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+uu<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -263,7 +263,13 @@ Wedding Invitation
 </div>
 
 </div>
+<button id="musicBtn">
+🔊 Music
+</button>
 
+<audio id="bgMusic" loop>
+<source src="../music/reelaudio-70084_rWPASEbu.mp3" type="audio/mpeg">
+</audio>
 </body>
   <div id="letterPage">
 <img
@@ -291,6 +297,8 @@ and bless us as we begin this beautiful journey together.
   <script>
 
 const seal=document.querySelector(".seal");
+    const music=document.getElementById("bgMusic");
+    const musicBtn=document.getElementById("musicBtn");
 const envelope=document.querySelector(".envelope");
 const letter=document.getElementById("letterPage");
 
@@ -312,10 +320,12 @@ document
 .querySelector(".letter-content")
 .classList.add("fade-box");
 },3000);
-
+  
+music.play().catch(()=>{});
 },1200);
 
 });
+    musicBtn.style.display="block";
 
 </script>
 </html>
