@@ -339,6 +339,25 @@ music.play().catch(()=>{});
 
 });
     musicBtn.style.display="block";
+    
+musicBtn.style.display="block";
 
+musicBtn.addEventListener("click",()=>{
+
+if(music.paused){
+
+music.play();
+
+musicBtn.innerHTML="🔊 Music";
+
+}else{
+
+music.pause();
+
+musicBtn.innerHTML="🔇 Muted";
+
+}
+
+});
 </script>
 </html>
