@@ -20,6 +20,8 @@ font-family:Georgia,serif;
 overflow:hidden;
 }
 
+/* Opening Screen */
+
 #opening{
 width:100%;
 height:100vh;
@@ -33,15 +35,17 @@ background:#d8e1cf;
 /* Envelope */
 
 .envelope{
-width:560px;
-height:380px;
-max-width:92vw;
+width:700px;
+height:470px;
+max-width:94vw;
 background:#a8b99a;
-border-radius:14px;
+border-radius:16px;
 position:relative;
 overflow:hidden;
-box-shadow:0 25px 50px rgba(0,0,0,.25);
+box-shadow:0 30px 60px rgba(0,0,0,.30);
 }
+
+/* Top Flap */
 
 .flap{
 position:absolute;
@@ -49,16 +53,12 @@ top:0;
 left:0;
 width:0;
 height:0;
-border-left:280px solid transparent;
-border-right:280px solid transparent;
-border-top:190px solid #93a484;
+border-left:350px solid transparent;
+border-right:350px solid transparent;
+border-top:235px solid #93a484;
 transform-origin:top;
 transition:1.3s;
 z-index:5;
-}
-
-.open .flap{
-transform:rotateX(180deg);
 }
 
 /* Seal */
@@ -66,56 +66,62 @@ transform:rotateX(180deg);
 .seal{
 position:absolute;
 left:50%;
-top:48%;
+top:38%;
 transform:translate(-50%,-50%);
-width:78px;
-height:78px;
+width:95px;
+height:95px;
 border-radius:50%;
 background:linear-gradient(145deg,#e4c267,#b88a2d);
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:22px;
+font-size:28px;
 font-weight:bold;
 color:white;
 cursor:pointer;
-z-index:10;
-border:3px solid rgba(255,255,255,.35);
-box-shadow:0 6px 18px rgba(0,0,0,.25);
+z-index:20;
+border:4px solid rgba(255,255,255,.40);
+box-shadow:0 8px 20px rgba(0,0,0,.30);
 }
 
-/* Title */
+/* Invitation Text */
 
 .invite-label{
-margin-top:35px;
-font-size:42px;
+margin-top:45px;
+font-family:Georgia,serif;
+font-size:58px;
 font-style:italic;
+font-weight:bold;
 letter-spacing:4px;
 color:#d4af37;
-text-shadow:0 4px 10px rgba(0,0,0,.25);
+text-shadow:0 5px 12px rgba(0,0,0,.25);
 }
+
+/* Mobile */
 
 @media(max-width:600px){
 
 .envelope{
-width:340px;
-height:240px;
+width:360px;
+height:250px;
 }
 
 .flap{
-border-left:170px solid transparent;
-border-right:170px solid transparent;
-border-top:120px solid #93a484;
+border-left:180px solid transparent;
+border-right:180px solid transparent;
+border-top:125px solid #93a484;
 }
 
 .seal{
-width:60px;
-height:60px;
-font-size:18px;
+width:72px;
+height:72px;
+font-size:20px;
 }
 
 .invite-label{
-font-size:26px;
+font-size:34px;
+text-align:center;
+padding:0 15px;
 }
 
 }
@@ -127,11 +133,11 @@ font-size:26px;
 
 <div id="opening">
 
-<div class="envelope" id="envelope">
+<div class="envelope">
 
 <div class="flap"></div>
 
-<div class="seal" id="seal">
+<div class="seal">
 A M
 </div>
 
