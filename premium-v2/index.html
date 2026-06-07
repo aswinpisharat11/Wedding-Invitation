@@ -46,8 +46,7 @@ box-shadow:0 30px 60px rgba(0,0,0,.30);
 }
 
 /* Top Flap */
-
-.flap{
+  .flap{
 position:absolute;
 top:0;
 left:0;
@@ -59,6 +58,24 @@ border-top:235px solid #93a484;
 transform-origin:top;
 transition:1.3s;
 z-index:5;
+}
+
+/* ADD THIS HERE */
+
+.open .flap{
+transform:rotateX(180deg);
+}
+
+/* THEN CONTINUE WITH */
+
+.seal{
+position:absolute;
+left:50%;
+top:38%;
+transform:translate(-50%,-50%);
+width:95px;
+height:95px;
+...
 }
 
 /* Seal */
@@ -125,7 +142,68 @@ padding:0 15px;
 }
 
 }
+/* Letter Page */
 
+#letterPage{
+position:fixed;
+top:100%;
+left:0;
+width:100%;
+height:100%;
+background:#d8e1cf;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px;
+transition:1.8s;
+z-index:100;
+}
+
+.letter-content{
+max-width:1000px;
+}
+
+.letter-content h1{
+font-size:80px;
+color:#28402b;
+margin-bottom:25px;
+}
+
+.gold-line{
+width:180px;
+height:2px;
+background:#b88a2d;
+margin:25px auto;
+}
+
+.letter-content h2{
+font-size:58px;
+color:#5c3a21;
+margin-bottom:35px;
+}
+
+.letter-content p{
+font-size:36px;
+line-height:1.8;
+color:#2f3c30;
+}
+
+@media(max-width:600px){
+
+.letter-content h1{
+font-size:44px;
+}
+
+.letter-content h2{
+font-size:32px;
+}
+
+.letter-content p{
+font-size:22px;
+}
+
+}
 </style>
 </head>
 
@@ -150,4 +228,45 @@ Wedding Invitation
 </div>
 
 </body>
+  <div id="letterPage">
+
+<div class="letter-content">
+
+<h1>Forever Beginning</h1>
+
+<div class="gold-line"></div>
+
+<h2>Aswin ❤️ Megha</h2>
+
+<p>
+Together with our families,<br><br>
+
+we joyfully invite you to celebrate our wedding
+and bless us as we begin this beautiful journey together.
+</p>
+
+</div>
+
+</div>
+  <script>
+
+const seal=document.querySelector(".seal");
+const envelope=document.querySelector(".envelope");
+const letter=document.getElementById("letterPage");
+
+seal.addEventListener("click",()=>{
+
+seal.style.opacity="0";
+
+envelope.classList.add("open");
+
+setTimeout(()=>{
+
+letter.style.top="0";
+
+},1200);
+
+});
+
+</script>
 </html>
