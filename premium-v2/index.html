@@ -598,39 +598,6 @@ musicBtn.innerHTML="🔇 Muted";
 
 });
 
-    const weddingDate = new Date(
-"october 22, 2026 11:00:00"
-).getTime();
-
-setInterval(()=>{
-
-const now = new Date().getTime();
-
-const distance = weddingDate - now;
-
-const days = Math.floor(distance/(1000*60*60*24));
-
-const hours = Math.floor(
-(distance%(1000*60*60*24))/
-(1000*60*60)
-);
-
-const minutes = Math.floor(
-(distance%(1000*60*60))/
-(1000*60)
-);
-
-const seconds = Math.floor(
-(distance%(1000*60))/
-1000
-);
-
-document.getElementById("days").innerHTML=days;
-document.getElementById("hours").innerHTML=hours;
-document.getElementById("minutes").innerHTML=minutes;
-document.getElementById("seconds").innerHTML=seconds;
-
-},1000);
 
     const weddingDate = new Date(
 "October 22, 2026 09:00:00"
@@ -704,45 +671,11 @@ THURSDAY
   
 <!-- COUNTDOWN SECTION START -->
 
-<section id="countdownSection">
-
-<div class="countdown-overlay">
-
-<h1>COUNTDOWN TO OUR BIG DAY</h1>
-
-<div id="countdown">
-
-<div class="time-box">
-<span id="days">00</span>
-<p>Days</p>
-</div>
-
-<div class="time-box">
-<span id="hours">00</span>
-<p>Hours</p>
-</div>
-
-<div class="time-box">
-<span id="minutes">00</span>
-<p>Minutes</p>
-</div>
-
-<div class="time-box">
-<span id="seconds">00</span>
-<p>Seconds</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-  
 <section id="countdownVenue">
 
 <img
 id="venuePhoto"
-src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1600&auto=format&fit=crop"
+src="https://www.magnific.com/free-vector/valentines-day-background-with-decorative-mandala-design-hearts_12022771.htm#fromView=keyword&page=1&position=5&uuid=0cc9af14-704e-4252-9865-7da73c529143&query=Wedding+invitation+background"
 alt="Venue">
 
 <div class="venue-overlay">
