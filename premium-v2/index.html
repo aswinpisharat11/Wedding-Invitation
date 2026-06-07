@@ -251,7 +251,8 @@ cursor:pointer;
 display:none;
 z-index:999;
 }
-#saveDateSection{
+
+  #saveDateSection{
 display:none;
 position:relative;
 width:100%;
@@ -354,7 +355,6 @@ const letter=document.getElementById("letterPage");
 seal.addEventListener("click",()=>{
 
 seal.style.opacity="0";
-
 envelope.classList.add("open");
 
 setTimeout(()=>{
@@ -363,34 +363,38 @@ document.getElementById("opening").style.display="none";
 
 letter.style.display="flex";
 
+music.play().catch(()=>{});
+
 setTimeout(()=>{
 
-document
-.getElementById("heroPhoto")
+document.getElementById("heroPhoto")
 .classList.add("show");
-document
-.querySelector(".letter-content")
+
+document.querySelector(".letter-content")
 .classList.add("fade-box");
 
+document.getElementById("saveDateSection")
+.style.display="flex";
+
 setTimeout(()=>{
 
-document
-.getElementById("saveDatePhoto")
+document.getElementById("saveDatePhoto")
 .classList.add("show");
 
-document
-.getElementById("saveDateSection")
+document.getElementById("saveDateSection")
 .scrollIntoView({
 behavior:"smooth"
 });
 
 },5000);
-  
-music.play().catch(()=>{});
+
+},1200);
+
 },1200);
 
 });
-    musicBtn.style.display="block";
+
+musicBtn.style.display="block";
     
 musicBtn.style.display="block";
 
