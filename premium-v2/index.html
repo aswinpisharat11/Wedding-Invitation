@@ -292,6 +292,123 @@ color:white;
 letter-spacing:6px;
 text-shadow:0 3px 10px rgba(0,0,0,.4);
 }
+  .date-card{
+margin-top:30px;
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(10px);
+padding:25px;
+border-radius:25px;
+width:220px;
+margin-left:auto;
+margin-right:auto;
+border:1px solid rgba(255,255,255,.25);
+}
+
+.month{
+font-size:28px;
+letter-spacing:5px;
+color:#d4af37;
+font-weight:bold;
+}
+
+.day{
+font-size:90px;
+font-weight:bold;
+color:white;
+line-height:1;
+margin:10px 0;
+}
+
+.year{
+font-size:30px;
+color:white;
+}
+
+.weekday{
+margin-top:12px;
+font-size:18px;
+letter-spacing:3px;
+color:#f5f5f5;
+}
+#countdownVenue{
+position:relative;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
+#venuePhoto{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.venue-overlay{
+position:relative;
+z-index:5;
+text-align:center;
+background:rgba(0,0,0,.35);
+padding:40px;
+border-radius:30px;
+backdrop-filter:blur(10px);
+}
+
+.venue-overlay h1{
+color:white;
+margin-bottom:30px;
+}
+
+#countdown{
+display:flex;
+gap:15px;
+justify-content:center;
+flex-wrap:wrap;
+margin-bottom:40px;
+}
+
+.time-box{
+background:rgba(255,255,255,.12);
+padding:20px;
+border-radius:18px;
+min-width:90px;
+}
+
+.time-box span{
+font-size:40px;
+color:white;
+font-weight:bold;
+}
+
+.time-box p{
+color:white;
+}
+
+.venue-details h2{
+color:#d4af37;
+margin-bottom:15px;
+}
+
+.venue-details p{
+color:white;
+font-size:22px;
+margin-bottom:20px;
+}
+
+.map-btn{
+display:inline-block;
+padding:12px 25px;
+background:#d4af37;
+color:white;
+text-decoration:none;
+border-radius:30px;
+font-weight:bold;
+}
+  
   #countdownSection{
 position:relative;
 width:100%;
@@ -514,6 +631,42 @@ document.getElementById("minutes").innerHTML=minutes;
 document.getElementById("seconds").innerHTML=seconds;
 
 },1000);
+
+    const weddingDate = new Date(
+"October 22, 2026 09:00:00"
+).getTime();
+
+setInterval(()=>{
+
+const now = new Date().getTime();
+
+const distance = weddingDate - now;
+
+document.getElementById("days").innerHTML =
+Math.floor(distance/(1000*60*60*24));
+
+document.getElementById("hours").innerHTML =
+Math.floor(
+(distance%(1000*60*60*24))
+/
+(1000*60*60)
+);
+
+document.getElementById("minutes").innerHTML =
+Math.floor(
+(distance%(1000*60*60))
+/
+(1000*60)
+);
+
+document.getElementById("seconds").innerHTML =
+Math.floor(
+(distance%(1000*60))
+/
+1000
+);
+
+},1000);
 </script>
   <section id="saveDateSection">
 
@@ -522,14 +675,33 @@ id="saveDatePhoto"
 src="https://raw.githubusercontent.com/aswinpisharat11/Wedding-Invitation/main/images/file_000000007688720bbc7d3a6fa533173d.png"
 alt="Save The Date">
 
-<div class="save-date-content">
+    <div class="save-date-content">
 
 <h1>SAVE THE DATE</h1>
 
+<div class="date-card">
+
+<div class="month">
+OCT
+</div>
+
+<div class="day">
+22
+</div>
+
+<div class="year">
+2026
+</div>
+
+<div class="weekday">
+THURSDAY
+</div>
+
+</div>
+
 </div>
 </section>
-  </section>
-
+  
 <!-- COUNTDOWN SECTION START -->
 
 <section id="countdownSection">
@@ -565,7 +737,65 @@ alt="Save The Date">
 </div>
 
 </section>
+  
+<section id="countdownVenue">
 
+<img
+id="venuePhoto"
+src="THIRD-PHOTO-LINK"
+alt="Venue">
+
+<div class="venue-overlay">
+
+<h1>COUNTDOWN TO OUR BIG DAY</h1>
+
+<div id="countdown">
+
+<div class="time-box">
+<span id="days">00</span>
+<p>Days</p>
+</div>
+
+<div class="time-box">
+<span id="hours">00</span>
+<p>Hours</p>
+</div>
+
+<div class="time-box">
+<span id="minutes">00</span>
+<p>Minutes</p>
+</div>
+
+<div class="time-box">
+<span id="seconds">00</span>
+<p>Seconds</p>
+</div>
+
+</div>
+
+<div class="venue-details">
+
+<h2>Wedding Venue</h2>
+
+<p>
+Venue Name<br>
+City, State
+</p>
+
+<a
+href="https://maps.google.com"
+target="_blank"
+class="map-btn">
+
+View on Google Maps
+
+</a>
+
+</div>
+
+</div>
+
+</section>
 </body>
 </html>
 
