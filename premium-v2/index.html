@@ -254,15 +254,18 @@ cursor:pointer;
 display:none;
 z-index:999;
 }
-#saveDateSection{
-position:relative;
-height:100vh;
+  #saveDateSection{
+display:none;
+position:fixed;
+top:0;
+left:0;
 width:100%;
-display:flex;
+height:100vh;
 justify-content:center;
 align-items:center;
 overflow:hidden;
-margin-top:100vh;
+z-index:200;
+background:#d8e1cf;
 }
 
 #saveDatePhoto{
@@ -375,12 +378,17 @@ document
 document
 .getElementById("saveDatePhoto")
 .classList.add("show");
+letter.style.opacity="0";
+
+setTimeout(()=>{
+
+letter.style.display="none";
 
 document
 .getElementById("saveDateSection")
-.scrollIntoView({
-behavior:"smooth"
-});
+.style.display="flex";
+
+},1500);
 
 },5000);
 },3000);
