@@ -271,8 +271,7 @@ left:0;
 width:100%;
 height:100%;
 object-fit:cover;
-opacity:0;
-transition:3s;
+opacity:1;
 z-index:1;
 }
 
@@ -413,13 +412,28 @@ font-weight:bold;
 position:relative;
 width:100%;
 height:100vh;
-background:url("images/White and Blue Modern Elegant Marriage Proposal Instagram Story_20260415_010708_0000~2.png") center center/cover no-repeat;
 display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
+overflow:hidden;
 }
 
+#countdownSection::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url("./images/White and Blue Modern Elegant Marriage Proposal Instagram Story_20260415_010708_0000~2.png") center center/cover no-repeat;
+z-index:1;
+}
+
+#countdownSection .venue-overlay{
+position:relative;
+z-index:5;
+}
 
   
 
@@ -641,10 +655,11 @@ Math.floor(
 
 
   <section id="saveDateSection">
+<section id="saveDateSection">
 
 <img
 id="saveDatePhoto"
-src="images/file_000000007688720bbc7d3a6fa533173d.png"
+src="./images/file_000000007688720bbc7d3a6fa533173d.png"
 alt="Save The Date">
 
 <div class="save-date-content">
@@ -666,6 +681,7 @@ alt="Save The Date">
 </div>
 
 </section>
+    
 <section id="countdownSection">
 
   
